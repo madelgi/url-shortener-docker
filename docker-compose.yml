@@ -1,0 +1,25 @@
+version: "3.7"
+services:
+    postgres:
+        container_name: postgres
+        restart: always
+        build: ./postgresql
+        volumes:
+            - url-shortener-db:/var/lib/postgresql/data
+        ports:
+            - "5432:5432"
+
+    web:
+        container_name: url_shortener
+        restart: always
+        build:
+            context: .
+            dockerfile: web/Dockerfile
+        ports:
+            - 5000:5000
+        depends_on:
+            - postgres
+
+volumes:
+    url-shortener-db:
+        name: url-shortener-db

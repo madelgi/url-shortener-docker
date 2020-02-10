@@ -1,0 +1,13 @@
+version: "3.7"
+services:
+    web:
+        env_file:
+            - ./.env.dev
+        volumes: [
+            './web:/home/url_shortener/web',
+            './.git:/home/url_shortener/web/.git'
+        ]
+
+volumes:
+    url-shortener-db:
+        name: url-shortener-db
