@@ -5,6 +5,7 @@ services:
             - ./.env.dev
         volumes: [
             './web:/home/url_shortener/web',
+            './.git:/home/url_shortener/.git'
         ]
 
 volumes:

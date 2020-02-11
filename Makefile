@@ -12,3 +12,7 @@ compose_up:
 compose_refresh:
 	make compose_build
 	make compose_up
+
+compose_clean:
+	docker-compose $(files) build --no-cache
+	docker-compose $(files) up
